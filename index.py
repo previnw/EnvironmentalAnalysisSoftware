@@ -22,7 +22,7 @@ posts = [
 	},
 	{
 		'author': 'Conrad',
-		'title': 'Blog Post 4',
+		'title': 'Blog Post 4',	
 		'content': 'Forth post content',
 		'date_posted': 'September 20, 2018'
 	},
@@ -43,6 +43,10 @@ def index():
 @app.route('/details')
 def details():
 	return render_template('details.html', posts=posts, title='Details')
+
+@app.route('/windows')
+def windows():
+    return render_template('windows.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)
