@@ -1,7 +1,6 @@
 # EnvironmentalAnalysisSoftware
 
-SETUP DEPLOYMENT
---------------------------
+Deployment
 set FLASK_APP=flaskblog.py
 set FLASK_ENV=development
 flask run
