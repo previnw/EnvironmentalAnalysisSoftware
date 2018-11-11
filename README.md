@@ -28,8 +28,8 @@ how to run app
 
 4. to see website
 	
-  - open your internet browser
-  - web address: http://localhost:5000/
+  open your internet browser
+  web address: http://localhost:5000/
 
 5. to stop web server
 
