@@ -1,4 +1,15 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>Environmental Analysis</h1>
+	<h1>Environmental Analysis Project</h1>	
+
+	<h3>Project Goal:</h3>
+
+	<h3>Short Project description:</h3>
+
+	<h4>Links to Other Pages:<br>
+		<a href="{{ url_for('details') }}"> Sensor Readings</a><br>
+		<a href="{{ url_for('testing') }}"> About our Team</a><br>
+		<a href="{{ url_for('datasheets') }}"> Datasheets and Schematics</a><br>
+	</h4>
+
 {% endblock content %}

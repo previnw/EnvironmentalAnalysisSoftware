@@ -40,6 +40,10 @@ posts = [
 def index():
     return render_template('index.html')
 
+@app.route('/datasheets')
+def datasheets():
+	return render_template('datasheets.html')
+
 @app.route('/details')
 def details():
 	return render_template('details.html', posts=posts, title='Details')
@@ -47,6 +51,10 @@ def details():
 @app.route('/windows')
 def windows():
     return render_template('windows.html')
+
+@app.route('/testing')
+def testing():
+	return render_template('testing.html')
 
 if __name__ == '__main__':
 	app.run(debug=True)
