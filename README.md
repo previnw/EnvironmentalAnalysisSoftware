@@ -14,7 +14,7 @@ how to run app
   
   1st way:
      
-    python index.py
+    pc/mac command: python index.py
   
   2nd way: 
     
@@ -33,11 +33,11 @@ how to run app
 
 5. to stop web server
 
-  command: ctrl-c
+  pc/mac command: ctrl-c
 
 6. to deactivate virtual environment
 
-  command: deactivate
+  pc/mac command: deactivate
 
 ```
 
