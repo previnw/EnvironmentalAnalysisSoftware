@@ -1,18 +1,26 @@
-# EnvironmentalAnalysisSoftware
+# Software Guide
 
 ```
-PC Deployment Command
----------------
-venv\Scripts\activate
-set FLASK_APP=index.py
-set FLASK_ENV=development
-flask run
+how to run app
+--------------
+1. cd to correct folder in directory
 
-MAC Deployment Command
-----------------
-. venv/bin/activate
-export FLASK_APP=index.py
-export FLASK_DEBUG=1
-flask run
+2. activate virtual environment
+  pc command: venv\Scripts\activate
+  mac command: . venv/bin/activate
+
+3. run app (2 ways)
+  
+  1st way:
+     python index.py
+  
+  2nd way: 
+    pc commands: set FLASK_APP=index.py 
+                 set FLASK_ENV=development
+                 flask run
+                 
+    mac commands: export FLASK_APP=index.py
+                  export FLASK_DEBUG=1
+                  flask run
 ```
 
