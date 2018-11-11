@@ -8,7 +8,7 @@ set FLASK_APP=index.py
 set FLASK_ENV=development
 flask run
 
-MAC Deployment Commands
+MAC Deployment Command
 ----------------
 . venv/bin/activate
 export FLASK_APP=index.py
