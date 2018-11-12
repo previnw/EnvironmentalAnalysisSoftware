@@ -74,13 +74,7 @@
     text-align: left;
     height: 165px;
   }
-  .phone {
-    position: absolute;
-    top: -7rem;
-    right: 3rem;
-    max-height: 362px;
-    z-index: 3;
-  }
+
   .phone + .phone {
     top: -6rem;
     display: block;
