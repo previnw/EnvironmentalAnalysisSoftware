@@ -42,19 +42,15 @@ def index():
 
 @app.route('/datasheets')
 def datasheets():
-	return render_template('datasheets.html')
+	return render_template('datasheets.html', title='Datasheet')
 
 @app.route('/details')
 def details():
 	return render_template('details.html', posts=posts, title='Details')
 
-@app.route('/windows')
-def windows():
-    return render_template('windows.html')
-
 @app.route('/about')
 def about():
-	return render_template('about.html')
+	return render_template('about.html', title='About')
 
 if __name__ == '__main__':
 	app.run(debug=True)

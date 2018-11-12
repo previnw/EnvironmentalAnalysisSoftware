@@ -1,17 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-	<h1>Environmental Analysis Project</h1>	
-
-	<h3>Project Goal:</h3>
-	<p>The goal of our project is to create a module that will help ensure air quality for our consumers based on their needs. Whether it be keeping everyone safe in a factory setting or making sure that the humidity and temperature of a wine cellar is in the perfect range, we want to make sure that anyone can keep track of their environment accurately.
-
-	<h3>Short Project description:</h3>
-	<p>Description of the module and the webpage schematics and what we used for each part (I2C, SPI, etc)</p>
-
-	<h4>Links to Other Pages:<br>
-		<a href="{{ url_for('details') }}"> Sensor Readings</a><br>
-		<a href="{{ url_for('about') }}"> About our Team</a><br>
-		<a href="{{ url_for('datasheets') }}"> Datasheets and Schematics</a><br>
-	</h4>
-
+  	<div class="container">
+	    <div class="row">
+	      <div class="two-thirds column" style="margin-top: 7.5%">
+	        <h4><b>Environmental Analysis</b></h4>
+			<h5>Project Goal:</h5>
+			<p>The goal of our project is to create a module that will help ensure air quality for our consumers based on their needs. Whether it be keeping everyone safe in a factory setting or making sure that the humidity and temperature of a wine cellar is in the perfect range, we want to make sure that anyone can keep track of their environment accurately.</p>
+			<h5>Short Project description:</h5>
+			<p>Description of the module and the webpage schematics and what we used for each part (I2C, SPI, etc)</p>
+	      </div>
+	    </div>
+  </div>
 {% endblock content %}

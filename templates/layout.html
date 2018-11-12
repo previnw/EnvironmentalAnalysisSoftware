@@ -1,13 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+
+	<!-- Basic Page Needs
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta charset="utf-8">
+
+	<!-- Mobile Specific Metas
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- FONT
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+
+	<!-- CSS
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">
+
+	  <!-- Scripts
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+	<!-- Favicon
+	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  	<link rel="icon" type="image/png" href="{{ url_for('static', filename='environment.png') }}">
+
 	{% if title %}
 		<title>Environmental Analysis - {{ title }}</title>
 	{% else %}
 		<title>Environmental Analysis</title>
 	{% endif %}
+
 </head>
-<body>
+<body class="code-snippets-visible">
+	<div class="container">
+		<nav class="navbar">
+			<div class="container">
+				<ul class="navbar-list">
+					<li class="navbar-item"><a class="navbar-link" href="/index">Home</a></li>
+					<li class="navbar-item"><a class="navbar-link" href="/details">Details</a></li>
+					<li class="navbar-item"><a class="navbar-link" href="/datasheets">Examples</a></li>
+					<li class="navbar-item"><a class="navbar-link" href="/about">About</a></li>
+				</ul>
+			</div>
+		</nav>
+	</div>
+		
 	{% block content %}{% endblock %}
+	
+
+		
 </body>
 </html>
+
