@@ -1,10 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
 	<div class="container" style="margin-top: 5%">
-		{% for post in posts %}
+		<!--{% for post in posts %}
 			<h5><b>{{ post.title }}:</b></h5>	
 			<p>By {{ post.author }} on {{ post.date_posted }}</p>
 			<p>{{ post.content }}</p>
-		{% endfor %}
+		{% endfor %}-->
+		<p> Humidity: </p>	
+
+		<p> Magnetic Field: </p>
+
+		<p> CO2: </p>
+
+		<p> CO: </p>
+
+		<p> Temperature: </p>	
+
+		<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>
 	</div>
 {% endblock content %}
