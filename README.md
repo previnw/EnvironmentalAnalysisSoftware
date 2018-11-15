@@ -7,7 +7,7 @@ how to run app
 
 2. activate virtual environment
   
-  pc command: venv\Scripts\activate
+  pc command: venvwin\Scripts\activate
   mac command: . venv/bin/activate
 
 3. run app w/ local web server (2 ways)
