@@ -2,6 +2,7 @@ from flask import Flask, render_template, url_for, jsonify, request
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
 import datetime
+import logging
 
 app = Flask(__name__)
 
@@ -65,6 +66,12 @@ def about():
 def jsontest():
 	return "Got data"
 
+# Running Flask's Local Web Server (localhost:5000)
 if __name__ == '__main__':
 	app.run(debug=True)
+
+# Running gcloud local web server (localhost:8080)
+# if __name__ == '__main__':
+# 	app.run(host='127.0.0.1', port=8080, debug=True)	
+
 
