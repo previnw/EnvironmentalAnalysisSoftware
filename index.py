@@ -1,6 +1,14 @@
 from flask import Flask, render_template, url_for, jsonify, request
+from flask_wtf import FlaskForm
+from wtforms import StringField, DecimalField
+import datetime
 
 app = Flask(__name__)
+
+class data(FlaskForm):
+	sensorName = StringField('sensorName')
+	reading = DecimalField('reading')
+
 
 posts = [
 	{
@@ -53,11 +61,9 @@ def details():
 def about():
 	return render_template('about.html', title='About')
 
-@app.route('/jsontest', methods = ['POST'])
+@app.route('/jsontest', methods = ['POST', 'GET'])
 def jsontest():
-	content = request.get_json()
-	print (content)
-	return 'JSON posted'
+	return "Got data"
 
 if __name__ == '__main__':
 	app.run(debug=True)

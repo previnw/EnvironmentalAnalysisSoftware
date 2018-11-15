@@ -6,16 +6,55 @@
 			<p>By {{ post.author }} on {{ post.date_posted }}</p>
 			<p>{{ post.content }}</p>
 		{% endfor %}-->
-		<p> Humidity: </p>	
+		<p> Humidity: 29</p>	
 
-		<p> Magnetic Field: </p>
+		<div> CO2: 153
 
-		<p> CO2: </p>
+			<button style="float:right;" onclick="acceptCO2(21)"> Check CO2 Levels</button>
 
-		<p> CO: </p>
+			<p id="demoCO2"></p>
 
-		<p> Temperature: </p>	
+		</div>
 
-		<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>
+		<div> CO: 45
+
+			<button style="float:right;" onclick="acceptCO(201)"> Check CO Levels</button>
+
+			<p id="demoCO"></p>
+
+		</div>
+
+		<p> Temperature: 23</p>	
+
+
+
+<script>
+function acceptCO(datapoint) {
+	if(datapoint > 25){
+		document.getElementById("demoCO").innerHTML =
+		"CO Level Unnaceptable";
+	} 	
+	else
+	{
+		document.getElementById("demoCO").innerHTML =
+		"CO Level is Fine";
+	}
+} 
+
+function acceptCO2(datapoint) {
+	if(datapoint > 1000){
+		document.getElementById("demoCO2").innerHTML =
+		"CO2 Level Unnaceptable";
+	} 	
+	else
+	{
+		document.getElementById("demoCO2").innerHTML =
+		"CO2 Level is Fine";
+	}
+} 
+</script>
+
+
+		<!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
 	</div>
 {% endblock content %}
