@@ -1,7 +1,8 @@
 import sqlite3
 from index import Temperature, CarbonMonoxide, CarbonDioxide, Humidity
 
-conn = sqlite3.connect('data.db')   #change this to file name to for application
+conn = sqlite3.connect('data.db')   #change this to :memory: for testing
+									#change to data.db for application, will add file into directory
 
 c = conn.cursor()
 
