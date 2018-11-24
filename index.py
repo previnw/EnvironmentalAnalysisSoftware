@@ -23,7 +23,7 @@ class Humidity:
 	def __init__(self, data_val_hum, id_hum):
 		self.id_hum = id_hum
 		self.data_val_hum = data_val_hum	
-					
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -38,7 +38,7 @@ def datasheets():
 
 @app.route('/details')
 def details():
-	return render_template('details.html', posts=posts, title='Details')
+	return render_template('details.html', title='Details')
 
 @app.route('/about')
 def about():
