@@ -14,15 +14,15 @@ how to run app
   
   1st way:
      
-    pc/mac command: python index.py
+    pc/mac command: python main.py
   
   2nd way: 
     
-    pc commands: set FLASK_APP=index.py 
+    pc commands: set FLASK_APP=main.py 
                  set FLASK_ENV=development
                  flask run
                  
-    mac commands: export FLASK_APP=index.py
+    mac commands: export FLASK_APP=main.py
                   export FLASK_DEBUG=1
                   flask run
 
