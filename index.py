@@ -1,8 +1,8 @@
-from flask import Flask, render_template, url_for, jsonify, request, redirect
+from flask import Flask, render_template, url_for, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
-import datetime, json
+import datetime
 
 class Temperature:
 	def __init__(self, data_val_temp, type_temp, id_temp):
@@ -50,14 +50,7 @@ def about():
 
 @app.route('/jsontest', methods = ['POST', 'GET'])
 def jsontest():
-	temp = request.form['Temperature']
-	humi = request.form['Humidity']
-
-	if humi=="100":
-		
-		return "humidity fine"
-	elif humi=="200":
-		return "humidity high!"
+	return "Got data"
 
 if __name__ == '__main__':
 	app.run(debug=True)
