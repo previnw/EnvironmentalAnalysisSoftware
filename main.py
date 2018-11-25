@@ -36,39 +36,6 @@ co2 = 0
 smoke = 0
 pressure = 0
 
-posts = [
-	{
-		'author': 'Previn Wong',
-		'title': 'Blog Post 1',
-		'content': 'First post content',
-		'date_posted': 'September 17, 2018'
-	},
-	{
-		'author': 'Dan P',
-		'title': 'Blog Post 2',
-		'content': 'Second post content',
-		'date_posted': 'September 18, 2018'
-	},
-	{
-		'author': 'Mike Lee',
-		'title': 'Blog Post 3',
-		'content': 'Third post content',
-		'date_posted': 'September 19, 2018'
-	},
-	{
-		'author': 'Conrad',
-		'title': 'Blog Post 4',	
-		'content': 'Forth post content',
-		'date_posted': 'September 20, 2018'
-	},
-	{
-		'author': 'Josh',
-		'title': 'Blog Post 5',
-		'content': 'Fifth post content',
-		'date_posted': 'September 21, 2018'
-	}
-]
-
 app = Flask(__name__)
 
 @app.route('/', methods=['GET', 'POST'])
@@ -87,9 +54,9 @@ def details():
 	if request.method == 'POST':
 		temp = request.form['Temperature']
 		humi = request.form['Humidity']
-		return render_template('details.html', posts=posts, title='Details', value=temp)
+		return render_template('details.html', title='Details', value=temp)
 	elif request.method == 'GET':
-		return render_template('details.html', posts=posts, title='Details')
+		return render_template('details.html', title='Details')
 
 @app.route('/about')
 def about():
