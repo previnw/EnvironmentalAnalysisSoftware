@@ -1,47 +1,34 @@
+<<<<<<< HEAD:main.py
 from flask import Flask, render_template, url_for, jsonify, request, redirect
+=======
+from flask import Flask, render_template, url_for, jsonify, request
+from flask_sqlalchemy import SQLAlchemy
+>>>>>>> 890f20ae1e3007c10932c69f017aba8a4861e194:index.py
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
 import datetime, json
 
+class Temperature:
+	def __init__(self, data_val_temp, id_temp):
+		self.id_temp = id_temp
+		self.data_val_temp = data_val_temp
+
+class CarbonDioxide:
+	def __init__(self, data_val_CO2, id_CO2):
+		self.id_CO2 = id_CO2
+		self.data_val_CO2 = data_val_CO2
+
+class CarbonMonoxide:
+	def __init__(self, data_valCO, id_CO):
+		self.id_CO = id_CO
+		self.data_valCO = data_valCO
+
+class Humidity:
+	def __init__(self, data_val_hum, id_hum):
+		self.id_hum = id_hum
+		self.data_val_hum = data_val_hum	
+
 app = Flask(__name__)
-
-class data(FlaskForm):
-	sensorName = StringField('sensorName')
-	reading = DecimalField('reading')
-
-
-posts = [
-	{
-		'author': 'Previn Wong',
-		'title': 'Blog Post 1',
-		'content': 'First post content',
-		'date_posted': 'September 17, 2018'
-	},
-	{
-		'author': 'Dan P',
-		'title': 'Blog Post 2',
-		'content': 'Second post content',
-		'date_posted': 'September 18, 2018'
-	},
-	{
-		'author': 'Mike Lee',
-		'title': 'Blog Post 3',
-		'content': 'Third post content',
-		'date_posted': 'September 19, 2018'
-	},
-	{
-		'author': 'Conrad',
-		'title': 'Blog Post 4',	
-		'content': 'Forth post content',
-		'date_posted': 'September 20, 2018'
-	},
-	{
-		'author': 'Josh',
-		'title': 'Blog Post 5',
-		'content': 'Fifth post content',
-		'date_posted': 'September 21, 2018'
-	}
-]
 
 @app.route('/')
 @app.route('/index')
@@ -55,7 +42,7 @@ def datasheets():
 
 @app.route('/details')
 def details():
-	return render_template('details.html', posts=posts, title='Details')
+	return render_template('details.html', title='Details')
 
 @app.route('/about')
 def about():
