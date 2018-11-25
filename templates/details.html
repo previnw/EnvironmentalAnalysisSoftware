@@ -1,56 +1,258 @@
 {% extends "layout.html" %}
 {% block content %}
-	<div class="container" style="margin-top: 5%">
-		<h4><b>Application</b></h4>
-		<p> Humidity: 29</p>	
-
-		<div> CO2: 153
-
-			<button style="float:right;" onclick="acceptCO2(21)"> Check CO2 Levels</button>
-
-			<p id="demoCO2"></p>
-
-		</div>
-
-		<div> CO: 45
-
-			<button style="float:right;" onclick="acceptCO(201)"> Check CO Levels</button>
-
-			<p id="demoCO"></p>
-
-		</div>
-
-		<p> Temperature: 23</p>	
-
-
-
+    <div class="container" style="margin-top: 5%">
+        <!--{% for post in posts %}
+            <h5><b>{{ post.title }}:</b></h5>   
+            <p>By {{ post.author }} on {{ post.date_posted }}</p>
+            <p>{{ post.content }}</p>
+        {% endfor %}-->
+        <p> Humidity: 29</p>    
+        <div> CO2: 153
+            <button style="float:right;" onclick="acceptCO2(21)"> Check CO2 Levels</button>
+            <p id="demoCO2"></p>
+        </div>
+        <div> CO: 45
+            <button style="float:right;" onclick="acceptCO(201)"> Check CO Levels</button>
+            <p id="demoCO"></p>
+        </div>
+        <p> Temperature: {{value}}</p> 
 <script>
 function acceptCO(datapoint) {
-	if(datapoint > 25){
-		document.getElementById("demoCO").innerHTML =
-		"CO Level Unnaceptable";
-	} 	
-	else
-	{
-		document.getElementById("demoCO").innerHTML =
-		"CO Level is Fine";
-	}
+    if(datapoint > 25){
+        document.getElementById("demoCO").innerHTML =
+        "CO Level Unnaceptable";
+    }   
+    else
+    {
+        document.getElementById("demoCO").innerHTML =
+        "CO Level is Fine";
+    }
 } 
-
 function acceptCO2(datapoint) {
-	if(datapoint > 1000){
-		document.getElementById("demoCO2").innerHTML =
-		"CO2 Level Unnaceptable";
-	} 	
-	else
-	{
-		document.getElementById("demoCO2").innerHTML =
-		"CO2 Level is Fine";
-	}
+    if(datapoint > 1000){
+        document.getElementById("demoCO2").innerHTML =
+        "CO2 Level Unnaceptable";
+    }   
+    else
+    {
+        document.getElementById("demoCO2").innerHTML =
+        "CO2 Level is Fine";
+    }
 } 
 </script>
-
-
-		<!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
-	</div>
+        <!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
+    
+<!--p>   Temperature </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result').text(data.result);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<h1>Dynamic Update</h1>
+<p>Temperature<p>
+<p>
+    <span id="result">?</span>
+<script>
+document.getElementById("result").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>   Humidity  </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result1').text(data.result1);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<p>Humidity</p>
+<p>
+    <span id="result1">?</span>
+<script>
+document.getElementById("result1").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>  Pressure </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result2').text(data.result2);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<p>Pressure</p>
+<p>
+    <span id="result2">?</span>
+<script>
+document.getElementById("result2").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>  Carbon Dioxide </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result3').text(data.result3);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<p>Carbon Dioxide</p>
+<p>
+    <span id="result3">?</span>
+<script>
+document.getElementById("result3").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>  Carbon Monoxide </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result4').text(data.result4);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<p>Carbon Monoxide</p>
+<p>
+    <span id="result4">?</span>
+<script>
+document.getElementById("result4").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>  Smoke </p>-->
+<title>jQuery Example</title>
+<script type="text/javascript"
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+<script type="text/javascript">
+var intervalID = setInterval(update_values,1000);
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/_stuff',
+               
+      function(data) {
+        $('#result5').text(data.result5);
+        console.log(data)
+      });
+      
+    };
+   
+    
+    
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+    
+</script>
+<body onload="update_values();">
+<p>Smoke</p>
+<p>
+    <span id="result5">?</span>
+<script>
+document.getElementById("result5").innerHTML;
+</script>
+    <button onclick="stopTextColor();">Stop</button>
+    </body>
+<!--p>   Testing stuff  </p>-->
+</div>
 {% endblock content %}
