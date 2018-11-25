@@ -20,9 +20,11 @@ how to run app
   pc command: venvwin\Scripts\activate
   mac command: . venv/bin/activate
 
+  *** if there are virtual environment issues follow this guide: http://flask.pocoo.org/docs/1.0/installation/#virtual-environments
+
 4. install flask
 
-  follow this installation guide: http://flask.pocoo.org/docs/1.0/installation/
+  follow this installation guide: http://flask.pocoo.org/docs/1.0/installation/#install-flask
 
 5. run app w/ local web server (2 ways)
   
