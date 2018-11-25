@@ -1,16 +1,30 @@
 # software guide
-[github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) `https://github.com/previnw/EnvironmentalAnalysisSoftware`
+[github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) 
+`https://github.com/previnw/EnvironmentalAnalysisSoftware`
 ```
 how to run app
 --------------
-1. cd to correct folder in directory
+1. clone repo & cd to the correct directory
 
-2. activate virtual environment
+2. setup python
+
+  install python3 or higher (python3.7 recommended) using: https://www.python.org/downloads/
+  
+  pc command to ensure python3 or higher is running: python
+  mac command to ensure python3 or higher is running: python -V
+
+  *** if pip doesn't work follow this guide: https://pip.pypa.io/en/stable/installing/
+
+3. activate virtual environment
   
   pc command: venvwin\Scripts\activate
   mac command: . venv/bin/activate
 
-3. run app w/ local web server (2 ways)
+4. install flask
+
+  follow this installation guide: http://flask.pocoo.org/docs/1.0/installation/
+
+5. run app w/ local web server (2 ways)
   
   1st way:
      
@@ -26,16 +40,16 @@ how to run app
                   export FLASK_DEBUG=1
                   flask run
 
-4. to see website
+6. to see website
 	
   open your internet browser
   web address: http://localhost:5000/
 
-5. to stop web server
+7. to stop web server
 
   pc/mac command: ctrl-c
 
-6. to deactivate virtual environment
+8. to deactivate virtual environment
 
   pc/mac command: deactivate
 
