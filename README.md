@@ -1,6 +1,6 @@
 # software guide
 [github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) 
-`https://github.com/previnw/EnvironmentalAnalysisSoftware`
+`(https://github.com/previnw/EnvironmentalAnalysisSoftware)`
 ```
 how to run app
 --------------
