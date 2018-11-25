@@ -1,7 +1,7 @@
-from flask import Flask, render_template, url_for, jsonify, request
+from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
-import datetime
+import datetime, json
 
 app = Flask(__name__)
 
@@ -63,7 +63,14 @@ def about():
 
 @app.route('/jsontest', methods = ['POST', 'GET'])
 def jsontest():
-	return "Got data"
+	temp = request.form['Temperature']
+	humi = request.form['Humidity']
+
+	if humi=="100":
+		
+		return "humidity fine"
+	elif humi=="200":
+		return "humidity high!"
 
 if __name__ == '__main__':
 	app.run(debug=True)
