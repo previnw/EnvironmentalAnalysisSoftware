@@ -1,9 +1,5 @@
-<<<<<<< HEAD:main.py
 from flask import Flask, render_template, url_for, jsonify, request, redirect
-=======
-from flask import Flask, render_template, url_for, jsonify, request
 from flask_sqlalchemy import SQLAlchemy
->>>>>>> 890f20ae1e3007c10932c69f017aba8a4861e194:index.py
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
 import datetime, json
