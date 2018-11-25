@@ -22,6 +22,8 @@ setup/build instructions
 ------------------------
 1. clone repo & cd to the correct directory
 
+  pc/mac command to clone: git clone https://github.com/previnw/EnvironmentalAnalysisSoftware.git
+
 2. setup python
 
   install python3 or higher (python3.7 recommended) using: https://www.python.org/downloads/
