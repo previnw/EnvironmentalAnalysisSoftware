@@ -1,7 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container" style="margin-top: 5%">
+    <div class="container" style="margin-top: 2.5%">
       <h4><b>Application</b></h4>
+        <!--first comment block
         <p> Humidity: 29</p>    
         <div> CO2: 153
             <button style="float:right;" onclick="acceptCO2(21)"> Check CO2 Levels</button>
@@ -12,6 +13,8 @@
             <p id="demoCO"></p>
         </div>
         <p> Temperature: {{value}}</p> 
+        end of first comment block-->
+<!--second comment block
 <script>
 function acceptCO(datapoint) {
     if(datapoint > 25){
@@ -36,8 +39,9 @@ function acceptCO2(datapoint) {
     }
 } 
 </script>
+end of second comment block-->
         <!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
-    
+
 <!--p>   Temperature </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -55,25 +59,24 @@ var intervalID = setInterval(update_values,1000);
         console.log(data)
       });
       
-    };
-   
-    
-    
+    };  
     function stopTextColor() {
       clearInterval(intervalID);
     }
-    
 </script>
 <body onload="update_values();">
-<h1>Dynamic Update</h1>
-<p>Temperature<p>
-<p>
-    <span id="result">?</span>
+<h5>Temperature</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result"><b>?</b></span>
 <script>
 document.getElementById("result").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
+
+
+
 <!--p>   Humidity  </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -92,23 +95,23 @@ var intervalID = setInterval(update_values,1000);
       });
       
     };
-   
-    
-    
     function stopTextColor() {
       clearInterval(intervalID);
     }
-    
 </script>
 <body onload="update_values();">
-<p>Humidity</p>
-<p>
-    <span id="result1">?</span>
+<h5>Humidity</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result1"><b>?</b></span>
 <script>
 document.getElementById("result1").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
+
+
+
 <!--p>  Pressure </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -124,26 +127,26 @@ var intervalID = setInterval(update_values,1000);
       function(data) {
         $('#result2').text(data.result2);
         console.log(data)
-      });
-      
+      });      
     };
-   
-    
-    
     function stopTextColor() {
       clearInterval(intervalID);
-    }
-    
+    }   
 </script>
 <body onload="update_values();">
-<p>Pressure</p>
-<p>
-    <span id="result2">?</span>
+<h5>Pressure</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result2"><b>?</b></span>
 <script>
 document.getElementById("result2").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
+
+
+
+
 <!--p>  Carbon Dioxide </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -162,23 +165,27 @@ var intervalID = setInterval(update_values,1000);
       });
       
     };
-   
-    
-    
     function stopTextColor() {
       clearInterval(intervalID);
     }
-    
 </script>
 <body onload="update_values();">
-<p>Carbon Dioxide</p>
-<p>
-    <span id="result3">?</span>
+<h5>Carbon Dioxide</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result3"><b>?</b></span>
 <script>
 document.getElementById("result3").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
+
+
+
+
+
+
+
 <!--p>  Carbon Monoxide </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -196,24 +203,28 @@ var intervalID = setInterval(update_values,1000);
         console.log(data)
       });
       
-    };
-   
-    
-    
+    };    
     function stopTextColor() {
       clearInterval(intervalID);
     }
-    
 </script>
 <body onload="update_values();">
-<p>Carbon Monoxide</p>
-<p>
-    <span id="result4">?</span>
+<h5>Carbon Monoxide</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result4"><b>?</b></span>
 <script>
 document.getElementById("result4").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
+
+
+
+
+
+
+
 <!--p>  Smoke </p>-->
 <title>jQuery Example</title>
 <script type="text/javascript"
@@ -229,25 +240,21 @@ var intervalID = setInterval(update_values,1000);
       function(data) {
         $('#result5').text(data.result5);
         console.log(data)
-      });
-      
+      });     
     };
-   
-    
-    
     function stopTextColor() {
       clearInterval(intervalID);
-    }
-    
+    }  
 </script>
 <body onload="update_values();">
-<p>Smoke</p>
-<p>
-    <span id="result5">?</span>
+<h5>Smoke</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result5"><b>?</b></span>
 <script>
 document.getElementById("result5").innerHTML;
 </script>
-    <button onclick="stopTextColor();">Stop</button>
+    <button style="margin-left: 20px;" onclick="stopTextColor();">Stop</button>
+    <br>
+    <br>
     </body>
 <!--p>   Testing stuff  </p>-->
 </div>
