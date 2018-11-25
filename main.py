@@ -1,3 +1,6 @@
+# terminal command to test and send data to app
+# curl --request POST --url https://go-environment.herokuapp.com/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
+
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
