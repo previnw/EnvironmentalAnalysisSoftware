@@ -1,9 +1,25 @@
-# software guide
+### software guide
 [github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) 
 `(https://github.com/previnw/EnvironmentalAnalysisSoftware)`
+[website](https://go-environment.herokuapp.com/)
+`(https://go-environment.herokuapp.com/) `
 ```
-how to run app
+code structure
 --------------
+front-end: 
+  python
+  flask microframework
+  skeleton boilerplate
+  html & css
+  javascript
+
+back-end:
+  sqlite3
+  python
+  json
+
+setup/build instructions
+------------------------
 1. clone repo & cd to the correct directory
 
 2. setup python
