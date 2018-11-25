@@ -70,6 +70,5 @@ setup/build instructions
 8. to deactivate virtual environment
 
   pc/mac command: deactivate
-
 ```
 
