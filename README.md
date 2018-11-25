@@ -7,6 +7,7 @@
 code structure
 --------------
 front-end: 
+
   python
   flask microframework
   skeleton boilerplate
@@ -14,6 +15,7 @@ front-end:
   javascript
 
 back-end:
+
   sqlite3
   python
   json
