@@ -8,7 +8,7 @@ code structure
 --------------
 front-end: 
 
-  python
+  python3.7
   flask microframework
   skeleton boilerplate
   html & css
