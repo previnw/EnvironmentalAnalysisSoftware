@@ -1,7 +1,7 @@
-#software guide
-[github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) https://github.com/previnw/EnvironmentalAnalysisSoftware
-
-###how to run app
+# software guide
+[github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) `https://github.com/previnw/EnvironmentalAnalysisSoftware`
+```
+how to run app
 --------------
 1. cd to correct folder in directory
 
@@ -39,5 +39,5 @@
 
   pc/mac command: deactivate
 
-
+```
 
