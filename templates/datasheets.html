@@ -1,10 +1,9 @@
 {% extends "layout.html" %}
 {% block content %}
 	<div class="container" style="margin-top: 5%">
-		<h5><b>Schematics for Module:</b></h5>	
-		<p>
-			Our module is designed using an Arduino Mega MCU with a variety of sensors to collect data about their surrounding environment. The sensors we are using include a pressure and temperature sensor, a CO2 gas sensor, a carbon monoxide sensor, and a humidity sensor. A wifi module is also connected to the Arduino to allow communication between our webpage and the system, which allows for dynamic updates on the data collected from the module. The overall cost of the parts came out to about 120 USD, making our design relatively cheap considering we did not buy in bulk.
-		</p>
+		<h4><b>Specifications</b></h4>
+		<h5>Hardware System:</h5>	
+		<p>Our module is designed using an Arduino Mega MCU with a variety of sensors to collect data about their surrounding environment. The sensors we are using include a pressure and temperature sensor, a CO2 gas sensor, a carbon monoxide sensor, and a humidity sensor. A wifi module is also connected to the Arduino to allow communication between our webpage and the system, which allows for dynamic updates on the data collected from the module. The overall cost of the parts came out to about 120 USD, making our design relatively cheap considering we did not buy in bulk.</p>
 		<div style="display: flex; justify-content: center;">
 			<img src="https://scontent-sjc3-1.xx.fbcdn.net/v/t1.0-9/46164366_2206102316075867_6580683762047123456_o.jpg?_nc_cat=111&_nc_ht=scontent-sjc3-1.xx&oh=d98613d91bd6dc6be3e6fa0e0961999f&oe=5C7EC061" alt="projschem" height="550" width="900" style="float:middle;">
 		</div>
@@ -14,7 +13,8 @@
 		</div>
 		<br>
 		<br>
-		<h5 align="middle"><b>Webpage Design and Implementation:</b></h5>
+		<br>
+		<h5>Software System:</h5>
 		<p>
 			The website is written using a combination of python, flask, and HTML with a SQLite3 backend database to store information. We used this design because it is easy to deploy, supported by all operating systems and has built in functionality to make our jobs easier.
 		</p>
