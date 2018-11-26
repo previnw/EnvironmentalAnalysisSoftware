@@ -8,7 +8,7 @@
 
 	<!-- Mobile Specific Metas
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 	<!-- FONT
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
@@ -18,16 +18,17 @@
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='normalize.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='skeleton.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">
-	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">
+	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='custom.css') }}">-->
+	<!--<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='demo.css') }}">-->
 
-	  <!-- Scripts
+	<!-- Scripts
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 	<!-- Favicon
 	–––––––––––––––––––––––––––––––––––––––––––––––––– -->
   	<link rel="icon" type="image/png" href="{{ url_for('static', filename='environment.png') }}">
+
 
 	{% if title %}
 		<title>Environmental Analysis - {{ title }}</title>
@@ -48,7 +49,35 @@
 </style>
 
 </head>
-<body class="code-snippets-visible">
+<body>
+
+
+	<div class="container">
+		<div class="row">
+			<div class="four columns" style="margin-top: 1.75%">
+				<code><u>Team Environment</u></code>
+			</div>
+			<div class="eight columns" style="margin-top: 1%">
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+				<a class="button" href="/index">Home</a>
+				<a class="button" href="/details">Product</a>
+				<a class="button" href="/datasheets">Specs</a>
+				<a class="button" href="/about">About</a>
+			</div>
+		</div>
+	</div>
+		
+	{% block content %}{% endblock %}
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
+
+		
+</body>
+</html>
+
+	<!-- NAV BAR 1
 	<div class="container">
 		<nav class="navbar">
 
@@ -65,12 +94,5 @@
 
 		</nav>
 	</div>
-		
-	{% block content %}{% endblock %}
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-	<script>window.jQuery || document.write('<script src="{{ url_for('static', filename='jquery.js') }}">\x3C/script>')</script>
-
-		
-</body>
-</html>
+-->
 
