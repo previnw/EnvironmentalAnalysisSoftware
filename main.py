@@ -120,7 +120,7 @@ def stuff():
 		#return "Posted!"
 	elif request.method == 'GET':
 		
-		return jsonify(result=temp, result1=humi, result2=pressure, result3=co2, result4=smoke, result5=co)  
+		return jsonify(result=temp, result1=humi, result2=pressure, result3=co2, result4=co, result5=smoke)  
 
 
 @app.route('/save-get',methods=['POST', 'GET'])
