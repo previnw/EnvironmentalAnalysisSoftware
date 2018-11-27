@@ -44,9 +44,16 @@ c = conn.cursor()
 
 # conn.commit()
 
-c.execute("DELETE FROM temperature")
+# c.execute("DELETE FROM temperature")
 
-print(c.fetchall())
+# print(c.fetchall())
+
+c.execute("SELECT id FROM temperature")
+
+temp = c.fetchall();
+
+for temp in temp:
+	float(temp)
 
 conn.commit()
 

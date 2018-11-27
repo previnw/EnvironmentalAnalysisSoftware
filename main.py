@@ -115,7 +115,7 @@ def stuff():
 		POS += 1
 		conn.commit()
 		conn.close()
-		return jsonify(result=temp)
+		return "Received POST"
 		#return "Posted!"
 	elif request.method == 'GET':
 		
