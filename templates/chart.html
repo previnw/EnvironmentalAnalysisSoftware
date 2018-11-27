@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.css">
+    <script src="https://cdn.jsdelivr.net/chartist.js/latest/chartist.min.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  </head>
+  <body>
+  	<button id="update">Update the Chart!</button>
+
+  	<div class="ct-chart ct-perfect-fourth"></div>
+  	<script>
+		
+  		
+  		var myChart;
+  		var getData = $.get('/data');
+  		getData.done(function(results){
+
+	  		var data = {
+			// A labels array that can contain any sort of values
+			labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+			// Our series array that contains series objects or in this case series data arrays
+			series: [
+				results.results
+			]
+			};
+			// Create a new line chart object where as first parameter we pass in a selector
+			// that is resolving to our chart container element. The Second parameter
+			// is the actual data object.
+			myChart = new Chartist.Line('.ct-chart', data);
+
+		});
+
+		function updateChart(){
+
+			var updatedData = $.get('/data');
+			updatedData.done(function(results){
+
+			
+				var data = {
+				// A labels array that can contain any sort of values
+				labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+				// Our series array that contains series objects or in this case series data arrays
+				series: [
+					results.results
+				]
+				};
+			myChart.update(data);		
+
+			});
+
+		}
+
+		$("#update").on('click', updateChart);
+
+  	</script>
+  </body>
+</html>
