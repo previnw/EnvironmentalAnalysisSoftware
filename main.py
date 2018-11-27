@@ -5,6 +5,7 @@ from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
+from random import sample
 import datetime, json
 
 class Temperature:
@@ -105,6 +106,15 @@ def saveget():
        return "Temperature : "+a+" ,  Humidity :  "+a
     else:
         return "Not get method"
+
+@app.route('/chart')
+def chart():
+	return render_template('chart.html')
+
+@app.route('/data')
+def data():
+	return jsonify({'results' : sample(range(1,10), 5)})
+
 #-----------------------
 
 if __name__ == '__main__':
