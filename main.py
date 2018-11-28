@@ -33,7 +33,7 @@ class Smoke_C:
 	def __init__(self, data_val_smo):
 		self.data_val_smo = data_val_smo
 
-global temp, humi, co, co2, smoke, pressure, POS
+global temp, humi, co, co2, smoke, pressure, POS, test
 POS = 0
 temp = 0
 humi = 0
