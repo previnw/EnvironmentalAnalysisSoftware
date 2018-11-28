@@ -7,8 +7,7 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
-
-global temp, humi, co, co2, smoke, pressure
+import sqlite3
 
 class Temperature:
 	def __init__(self, data_val_temp):
@@ -35,7 +34,6 @@ class Smoke_C:
 		self.data_val_smo = data_val_smo
 
 global temp, humi, co, co2, smoke, pressure, POS
-
 POS = 0
 temp = 0
 humi = 0
@@ -86,17 +84,22 @@ def jsontest():
 @app.route('/_stuff', methods = ['POST', 'GET'])
 def stuff():
     #return jsonify(result=time.time())
-	global temp, humi, co, co2, smoke, pressure
+	global temp, humi, co, co2, smoke, pressure, POS
 
 	if request.method == 'POST':
-
+		conn = sqlite3.connect('data.db') 
+		c = conn.cursor()
 		temp = request.form['Temperature']
+		c.execute("INSERT INTO temperature VALUES (:reading, NULL)", {'reading': float(temp)})
 		humi = request.form['Humidity']
+		c.execute("INSERT INTO humidity VALUES (:reading, NULL)", {'reading': float(humi)})
 		co = request.form['Co']
+		c.execute("INSERT INTO carbonMonoxide VALUES (:reading, NULL)", {'reading': float(co)})
 		co2 = request.form['Co2']
+		c.execute("INSERT INTO carbonDioxide VALUES (:reading, NULL)", {'reading': float(co2)})
 		smoke = request.form['Smoke']
+		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': float(smoke)})
 		pressure = request.form['Pressure']
-
 		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
 		if POS > 10:
 			c.execute("DELETE FROM temperature")
