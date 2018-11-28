@@ -74,11 +74,8 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result").innerHTML;
 </script>
-<<<<<<< HEAD
     <button id="update" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -112,11 +109,9 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result1").innerHTML;
 </script>
-<<<<<<< HEAD
+
     <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -148,11 +143,9 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result2").innerHTML;
 </script>
-<<<<<<< HEAD
+
     <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -189,11 +182,8 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result3").innerHTML;
 </script>
-<<<<<<< HEAD
     <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -231,11 +221,8 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result4").innerHTML;
 </script>
-<<<<<<< HEAD
     <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -272,11 +259,8 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result5").innerHTML;
 </script>
-<<<<<<< HEAD
     <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-=======
-    <button id="update6" style="margin-left: 20px;">Graph</button>
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
     <br>
     <br>
     </body>
@@ -284,15 +268,12 @@ document.getElementById("result5").innerHTML;
 
 </div>
 
-<div class="one-third column">
+<div style="text-align: center" class="one-third column">
 
-<<<<<<< HEAD
   <br>
   <br>
-  <br>
+  <h5 style="display: inline-block">Graph</h5>
 
-=======
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
     <div class="ct-chart ct-perfect-fourth"></div>
     <script>
   
@@ -314,11 +295,11 @@ document.getElementById("result5").innerHTML;
       // is the actual data object.
 
       var options = {
-      width: 150,
-      height: 100
+      width: 300,
+      height: 200
       };
 
-      myChart = new Chartist.Line('.ct-chart', data);
+      myChart = new Chartist.Line('.ct-chart', data, options);
 
     });
 
@@ -342,19 +323,13 @@ document.getElementById("result5").innerHTML;
 
     }
 
-<<<<<<< HEAD
     $("#update").on('click', updateChart);
-=======
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
     $("#update1").on('click', updateChart);
     $("#update2").on('click', updateChart);
     $("#update3").on('click', updateChart);
     $("#update4").on('click', updateChart);
     $("#update5").on('click', updateChart);
-<<<<<<< HEAD
-=======
-    $("#update6").on('click', updateChart);
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
+
 
     </script>
 

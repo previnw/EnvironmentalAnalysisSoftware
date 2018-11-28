@@ -134,9 +134,8 @@ def chart():
 
 @app.route('/data')
 def data():
-<<<<<<< HEAD
-	return jsonify({'results' : sample(range(1,11), 10)})
-=======
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
 
 	conn = sqlite3.connect('data.db') 
 
@@ -161,7 +160,6 @@ def data():
 	conn.close()
 
 	return jsonify(chart_temp=chart_data)
->>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
 
 #-----------------------
 
