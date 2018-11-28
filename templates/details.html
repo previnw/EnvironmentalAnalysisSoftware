@@ -74,7 +74,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -108,7 +108,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result1").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -140,7 +140,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result2").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -177,7 +177,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result3").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -215,7 +215,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result4").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -252,7 +252,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result5").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -262,11 +262,13 @@ document.getElementById("result5").innerHTML;
 
 <div class="one-third column">
 
-    <button id="update">Update the Chart!</button>
+  <br>
+  <br>
+  <br>
 
     <div class="ct-chart ct-perfect-fourth"></div>
     <script>
-    
+  
       
       var myChart;
       var getData = $.get('/data');
@@ -314,6 +316,11 @@ document.getElementById("result5").innerHTML;
     }
 
     $("#update").on('click', updateChart);
+    $("#update1").on('click', updateChart);
+    $("#update2").on('click', updateChart);
+    $("#update3").on('click', updateChart);
+    $("#update4").on('click', updateChart);
+    $("#update5").on('click', updateChart);
 
     </script>
 

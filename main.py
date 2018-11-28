@@ -138,7 +138,7 @@ def chart():
 
 @app.route('/data')
 def data():
-	return jsonify({'results' : sample(range(1,10), 5)})
+	return jsonify({'results' : sample(range(1,11), 10)})
 
 #-----------------------
 
