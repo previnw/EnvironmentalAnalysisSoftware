@@ -1,6 +1,6 @@
 # terminal command to test and send data to app
 # curl --request POST --url https://go-environment.herokuapp.com/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
-# curl --request POST --url localhost:5000/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
+# curl --request POST --url localhost:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
 
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_wtf import FlaskForm
@@ -8,7 +8,36 @@ from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
 
+<<<<<<< HEAD
 global temp, humi, co, co2, smoke, pressure
+=======
+class Temperature:
+	def __init__(self, data_val_temp):
+		self.data_val_temp = data_val_temp
+
+class CarbonDioxide:
+	def __init__(self, data_val_CO2):
+		self.data_val_CO2 = data_val_CO2
+
+class CarbonMonoxide:
+	def __init__(self, data_valCO):
+		self.data_valCO = data_valCO
+
+class Humidity:
+	def __init__(self, data_val_hum):
+		self.data_val_hum = data_val_hum
+
+class Pressure_C:
+	def __init__(self, data_val_pres):
+		self.data_val_pres = data_val_pres
+
+class Smoke_C:
+	def __init__(self, data_val_smo):
+		self.data_val_smo = data_val_smo
+
+global temp, humi, co, co2, smoke, pressure, POS
+POS = 0
+>>>>>>> master
 temp = 0
 humi = 0
 co = 0
@@ -68,6 +97,21 @@ def stuff():
 		co2 = request.form['Co2']
 		smoke = request.form['Smoke']
 		pressure = request.form['Pressure']
+<<<<<<< HEAD
+=======
+		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
+		if POS > 10:
+			c.execute("DELETE FROM temperature")
+			c.execute("DELETE FROM humidity")
+			c.execute("DELETE FROM smoke_table")
+			c.execute("DELETE FROM carbonDioxide")
+			c.execute("DELETE FROM carbonMonoxide")
+			c.execute("DELETE FROM pressure_table")
+			POS = 0
+		POS += 1
+		conn.commit()
+		conn.close()
+>>>>>>> master
 		return jsonify(result=temp)
 		#return "Posted!"
 	elif request.method == 'GET':
@@ -90,7 +134,32 @@ def chart():
 
 @app.route('/data')
 def data():
-	return jsonify({'results' : sample(range(1,10), 5)})
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	#if blah then select data from certain table
+
+	c.execute("SELECT data_val FROM temperature")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	conn.close()
+
+	return jsonify(chart_temp=chart_data)
 
 #-----------------------
 
