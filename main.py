@@ -8,9 +8,8 @@ from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
 
-<<<<<<< HEAD
 global temp, humi, co, co2, smoke, pressure
-=======
+
 class Temperature:
 	def __init__(self, data_val_temp):
 		self.data_val_temp = data_val_temp
@@ -36,8 +35,8 @@ class Smoke_C:
 		self.data_val_smo = data_val_smo
 
 global temp, humi, co, co2, smoke, pressure, POS
+
 POS = 0
->>>>>>> master
 temp = 0
 humi = 0
 co = 0
@@ -97,8 +96,7 @@ def stuff():
 		co2 = request.form['Co2']
 		smoke = request.form['Smoke']
 		pressure = request.form['Pressure']
-<<<<<<< HEAD
-=======
+
 		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
 		if POS > 10:
 			c.execute("DELETE FROM temperature")
@@ -111,7 +109,6 @@ def stuff():
 		POS += 1
 		conn.commit()
 		conn.close()
->>>>>>> master
 		return jsonify(result=temp)
 		#return "Posted!"
 	elif request.method == 'GET':
@@ -135,31 +132,31 @@ def chart():
 @app.route('/data')
 def data():
 
-	# return jsonify({'results' : sample(range(1,11), 10)})
+	return jsonify({'results' : sample(range(1,11), 10)})
 
-	conn = sqlite3.connect('data.db') 
+	# conn = sqlite3.connect('data.db') 
 
-	c = conn.cursor()
+	# c = conn.cursor()
 
-	#if blah then select data from certain table
+	# #if blah then select data from certain table
 
-	c.execute("SELECT data_val FROM temperature")
+	# c.execute("SELECT data_val FROM temperature")
 
-	test = c.fetchall() 
+	# test = c.fetchall() 
 
-	chart_data = []
+	# chart_data = []
 
-	for x in range(len(test)):
+	# for x in range(len(test)):
 
-		testing1 = str(test[x])[1:-4]
+	# 	testing1 = str(test[x])[1:-4]
 
-		testing = float(testing1)
+	# 	testing = float(testing1)
 
-		chart_data.append(testing)
+	# 	chart_data.append(testing)
 
-	conn.close()
+	# conn.close()
 
-	return jsonify(chart_temp=chart_data)
+	# return jsonify(chart_temp=chart_data)
 
 #-----------------------
 

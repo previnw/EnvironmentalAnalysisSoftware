@@ -14,14 +14,14 @@
   		
   		var myChart;
   		var getData = $.get('/data');
-  		getData.done(function(chart_temp){
+  		getData.done(function(results){
 
 	  		var data = {
 			// A labels array that can contain any sort of values
 			labels: [],
 			// Our series array that contains series objects or in this case series data arrays
 			series: [
-				chart_temp.chart_temp
+				results.results
 			]
 			};
 			// Create a new line chart object where as first parameter we pass in a selector
@@ -34,7 +34,7 @@
 		function updateChart(){
 
 			var updatedData = $.get('/data');
-			updatedData.done(function(chart_temp){
+			updatedData.done(function(results){
 
 			
 				var data = {
@@ -42,7 +42,7 @@
 				labels: [],
 				// Our series array that contains series objects or in this case series data arrays
 				series: [
-					chart_temp.chart_temp
+					results.results
 				]
 				};
 			myChart.update(data);		

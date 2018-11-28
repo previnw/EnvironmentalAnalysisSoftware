@@ -42,12 +42,14 @@ function acceptCO2(datapoint) {
 end of second comment block-->
         <!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
 
-<!--p>   Temperature </p>-->
+
 <div class="row">
 
 
 
 <div class="one-third column">
+
+<!--p>   Temperature </p>-->
 <title>jQuery Example</title>
 
 <script type="text/javascript">
@@ -117,11 +119,6 @@ document.getElementById("result1").innerHTML;
     </body>
 
 
-</div>
-
-
-<div class="one-third column">
-
 
 
 <!--p>  Pressure </p>-->
@@ -155,8 +152,14 @@ document.getElementById("result2").innerHTML;
     <br>
     <br>
     </body>
+</div>
 
 
+
+
+
+
+<div class="one-third column">
 
 <!--p>  Carbon Dioxide </p>-->
 <title>jQuery Example</title>
@@ -191,12 +194,6 @@ document.getElementById("result3").innerHTML;
     <br>
     </body>
 
-
-
-
-</div>
-
-<div class="one-third column">
 
 
 
@@ -236,9 +233,6 @@ document.getElementById("result4").innerHTML;
 
 
 
-
-
-
 <!--p>  Smoke </p>-->
 <title>jQuery Example</title>
 
@@ -271,10 +265,11 @@ document.getElementById("result5").innerHTML;
     <br>
     </body>
 
-<<<<<<< HEAD
-=======
+
+
 
 </div>
+
 
 <div style="text-align: center" class="one-third column">
 
@@ -288,14 +283,14 @@ document.getElementById("result5").innerHTML;
       
       var myChart;
       var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      getData.done(function(results){
 
         var data = {
       // A labels array that can contain any sort of values
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -314,7 +309,7 @@ document.getElementById("result5").innerHTML;
     function updateChart(){
 
       var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      updatedData.done(function(results){
 
       
         var data = {
@@ -322,7 +317,7 @@ document.getElementById("result5").innerHTML;
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
       myChart.update(data);   
@@ -341,7 +336,6 @@ document.getElementById("result5").innerHTML;
 
     </script>
 
->>>>>>> master
   </div>
 
 
