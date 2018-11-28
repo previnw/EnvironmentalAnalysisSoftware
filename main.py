@@ -1,6 +1,6 @@
 # terminal command to test and send data to app
 # curl --request POST --url https://go-environment.herokuapp.com/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
-# curl --request POST --url localhost:5000/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
+# curl --request POST --url localhost:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
 
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_wtf import FlaskForm
@@ -8,10 +8,6 @@ from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
 import sqlite3
-
-conn = sqlite3.connect('data.db') 
-
-c = conn.cursor()
 
 class Temperature:
 	def __init__(self, data_val_temp):
@@ -105,7 +101,7 @@ def stuff():
 		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': float(smoke)})
 		pressure = request.form['Pressure']
 		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
-		if POS > 100:
+		if POS > 10:
 			c.execute("DELETE FROM temperature")
 			c.execute("DELETE FROM humidity")
 			c.execute("DELETE FROM smoke_table")
@@ -138,7 +134,34 @@ def chart():
 
 @app.route('/data')
 def data():
+<<<<<<< HEAD
 	return jsonify({'results' : sample(range(1,11), 10)})
+=======
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	#if blah then select data from certain table
+
+	c.execute("SELECT data_val FROM temperature")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	conn.close()
+
+	return jsonify(chart_temp=chart_data)
+>>>>>>> 9ebda10afaefbfbd7b7f7e2aaebaf0fbae1e321d
 
 #-----------------------
 
