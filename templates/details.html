@@ -74,7 +74,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -108,7 +108,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result1").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -140,7 +140,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result2").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -177,7 +177,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result3").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -215,7 +215,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result4").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
     <br>
     <br>
     </body>
@@ -252,7 +252,7 @@ var intervalID = setInterval(update_values,1000);
 <script>
 document.getElementById("result5").innerHTML;
 </script>
-    <button style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+    <button id="update6" style="margin-left: 20px;">Graph</button>
     <br>
     <br>
     </body>
@@ -262,22 +262,20 @@ document.getElementById("result5").innerHTML;
 
 <div class="one-third column">
 
-    <button id="update">Update the Chart!</button>
-
     <div class="ct-chart ct-perfect-fourth"></div>
     <script>
     
       
       var myChart;
       var getData = $.get('/data');
-      getData.done(function(results){
+      getData.done(function(chart_temp){
 
         var data = {
       // A labels array that can contain any sort of values
       labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        results.results
+        chart_temp.chart_temp
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -296,7 +294,7 @@ document.getElementById("result5").innerHTML;
     function updateChart(){
 
       var updatedData = $.get('/data');
-      updatedData.done(function(results){
+      updatedData.done(function(chart_temp){
 
       
         var data = {
@@ -304,7 +302,7 @@ document.getElementById("result5").innerHTML;
         labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          results.results
+          chart_temp.chart_temp
         ]
         };
       myChart.update(data);   
@@ -313,7 +311,12 @@ document.getElementById("result5").innerHTML;
 
     }
 
-    $("#update").on('click', updateChart);
+    $("#update1").on('click', updateChart);
+    $("#update2").on('click', updateChart);
+    $("#update3").on('click', updateChart);
+    $("#update4").on('click', updateChart);
+    $("#update5").on('click', updateChart);
+    $("#update6").on('click', updateChart);
 
     </script>
 

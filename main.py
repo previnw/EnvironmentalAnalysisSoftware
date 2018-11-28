@@ -101,7 +101,7 @@ def stuff():
 		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': float(smoke)})
 		pressure = request.form['Pressure']
 		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
-		if POS > 100:
+		if POS > 10:
 			c.execute("DELETE FROM temperature")
 			c.execute("DELETE FROM humidity")
 			c.execute("DELETE FROM smoke_table")
