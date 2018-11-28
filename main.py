@@ -7,38 +7,8 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
-import sqlite3
 
-conn = sqlite3.connect('data.db') 
-
-c = conn.cursor()
-
-class Temperature:
-	def __init__(self, data_val_temp):
-		self.data_val_temp = data_val_temp
-
-class CarbonDioxide:
-	def __init__(self, data_val_CO2):
-		self.data_val_CO2 = data_val_CO2
-
-class CarbonMonoxide:
-	def __init__(self, data_valCO):
-		self.data_valCO = data_valCO
-
-class Humidity:
-	def __init__(self, data_val_hum):
-		self.data_val_hum = data_val_hum
-
-class Pressure_C:
-	def __init__(self, data_val_pres):
-		self.data_val_pres = data_val_pres
-
-class Smoke_C:
-	def __init__(self, data_val_smo):
-		self.data_val_smo = data_val_smo
-
-global temp, humi, co, co2, smoke, pressure, POS
-POS = 0
+global temp, humi, co, co2, smoke, pressure
 temp = 0
 humi = 0
 co = 0
@@ -88,34 +58,16 @@ def jsontest():
 @app.route('/_stuff', methods = ['POST', 'GET'])
 def stuff():
     #return jsonify(result=time.time())
-	global temp, humi, co, co2, smoke, pressure, POS
+	global temp, humi, co, co2, smoke, pressure
 
 	if request.method == 'POST':
-		conn = sqlite3.connect('data.db') 
-		c = conn.cursor()
+
 		temp = request.form['Temperature']
-		c.execute("INSERT INTO temperature VALUES (:reading, NULL)", {'reading': float(temp)})
 		humi = request.form['Humidity']
-		c.execute("INSERT INTO humidity VALUES (:reading, NULL)", {'reading': float(humi)})
 		co = request.form['Co']
-		c.execute("INSERT INTO carbonMonoxide VALUES (:reading, NULL)", {'reading': float(co)})
 		co2 = request.form['Co2']
-		c.execute("INSERT INTO carbonDioxide VALUES (:reading, NULL)", {'reading': float(co2)})
 		smoke = request.form['Smoke']
-		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': float(smoke)})
 		pressure = request.form['Pressure']
-		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
-		if POS > 100:
-			c.execute("DELETE FROM temperature")
-			c.execute("DELETE FROM humidity")
-			c.execute("DELETE FROM smoke_table")
-			c.execute("DELETE FROM carbonDioxide")
-			c.execute("DELETE FROM carbonMonoxide")
-			c.execute("DELETE FROM pressure_table")
-			POS = 0
-		POS += 1
-		conn.commit()
-		conn.close()
 		return jsonify(result=temp)
 		#return "Posted!"
 	elif request.method == 'GET':
