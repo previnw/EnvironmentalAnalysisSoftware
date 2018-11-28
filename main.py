@@ -8,6 +8,7 @@ from wtforms import StringField, DecimalField
 from random import sample
 import datetime, json
 import sqlite3
+import requests
 
 class Temperature:
 	def __init__(self, data_val_temp):
