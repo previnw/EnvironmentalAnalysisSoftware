@@ -74,5 +74,19 @@ setup/build instructions
 8. to deactivate virtual environment
 
   pc/mac command: deactivate
+
+
+
+Windows Deployment:
+
+1. Turn off private firewall
+
+2. Make sure there is one db.close in the main code
+
+3. add a timeout to the connnect
+
+4. make sure to change IP address when changing networks
 ```
+
+
 
