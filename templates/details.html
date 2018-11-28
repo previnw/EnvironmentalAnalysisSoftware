@@ -283,14 +283,14 @@ document.getElementById("result5").innerHTML;
       
       var myChart;
       var getData = $.get('/data');
-      getData.done(function(results){
+      getData.done(function(chart_temp){
 
         var data = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        results.results
+        chart_temp.chart_temp
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -309,7 +309,7 @@ document.getElementById("result5").innerHTML;
     function updateChart(){
 
       var updatedData = $.get('/data');
-      updatedData.done(function(results){
+      updatedData.done(function(chart_temp){
 
       
         var data = {
@@ -317,7 +317,7 @@ document.getElementById("result5").innerHTML;
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          results.results
+          chart_temp.chart_temp
         ]
         };
       myChart.update(data);   
