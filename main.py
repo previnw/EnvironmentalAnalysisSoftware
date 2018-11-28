@@ -159,7 +159,17 @@ def data():
 
 	return jsonify(chart_temp=chart_data)
 
+@app.route('/details2', methods = ['POST', 'GET'])
+def oldapp():
+	if request.method == 'POST':
+		temp = request.form['Temperature']
+		humi = request.form['Humidity']
+		return render_template('detailsOld.html', title='Details', value=temp)
+	elif request.method == 'GET':
+		return render_template('detailsOld.html', title='Details')
+
 #-----------------------
 
 if __name__ == '__main__':
 	app.run(debug=True)
+
