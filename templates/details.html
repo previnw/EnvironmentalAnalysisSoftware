@@ -167,7 +167,7 @@
 
     });
 
-    function updateChart(){
+    function updateChart1(){
 
       var updatedData = $.get('/data');
       updatedData.done(function(chart_temp){
@@ -187,7 +187,7 @@
 
     }
 
-    $("#update1").on('click', updateChart);
+    $("#update1").on('click', updateChart1);
 
     </script>     
 
@@ -261,7 +261,7 @@
 
     });
 
-    function updateChart(){
+    function updateChart2(){
 
       var updatedData = $.get('/data');
       updatedData.done(function(chart_temp){
@@ -281,7 +281,7 @@
 
     }
 
-    $("#update2").on('click', updateChart);
+    $("#update2").on('click', updateChart2);
 
     </script>
 
@@ -356,7 +356,7 @@
 
     });
 
-    function updateChart(){
+    function updateChart3(){
 
       var updatedData = $.get('/data');
       updatedData.done(function(chart_temp){
@@ -376,7 +376,7 @@
 
     }
 
-    $("#update3").on('click', updateChart);
+    $("#update3").on('click', updateChart3);
 
     </script>
 
@@ -451,7 +451,7 @@
 
     });
 
-    function updateChart(){
+    function updateChart4(){
 
       var updatedData = $.get('/data');
       updatedData.done(function(chart_temp){
@@ -471,7 +471,7 @@
 
     }
 
-    $("#update4").on('click', updateChart);
+    $("#update4").on('click', updateChart4);
 
 
     </script>
@@ -546,7 +546,7 @@
 
     });
 
-    function updateChart(){
+    function updateChart5(){
 
       var updatedData = $.get('/data');
       updatedData.done(function(chart_temp){
@@ -560,13 +560,13 @@
           chart_temp.chart_temp
         ]
         };
-      myChart.update(data);   
+      myChart.update(data);
 
       });
 
     }
 
-    $("#update5").on('click', updateChart);
+    $("#update5").on('click', updateChart5);
 
 
     </script>
