@@ -1,6 +1,6 @@
 # terminal command to test and send data to app
 # curl --request POST --url https://go-environment.herokuapp.com/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
-# curl --request POST --url localhost:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
+# curl --request POST --url 172.20.10.8:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
 
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_wtf import FlaskForm
@@ -33,7 +33,7 @@ class Smoke_C:
 	def __init__(self, data_val_smo):
 		self.data_val_smo = data_val_smo
 
-global temp, humi, co, co2, smoke, pressure, POS
+global temp, humi, co, co2, smoke, pressure, POS, test
 POS = 0
 temp = 0
 humi = 0
@@ -87,20 +87,20 @@ def stuff():
 	global temp, humi, co, co2, smoke, pressure, POS
 
 	if request.method == 'POST':
-		conn = sqlite3.connect('data.db') 
+		conn = sqlite3.connect('data.db', timeout = 3) 
 		c = conn.cursor()
 		temp = request.form['Temperature']
-		c.execute("INSERT INTO temperature VALUES (:reading, NULL)", {'reading': float(temp)})
 		humi = request.form['Humidity']
-		c.execute("INSERT INTO humidity VALUES (:reading, NULL)", {'reading': float(humi)})
 		co = request.form['Co']
-		c.execute("INSERT INTO carbonMonoxide VALUES (:reading, NULL)", {'reading': float(co)})
-		co2 = request.form['Co2']
-		c.execute("INSERT INTO carbonDioxide VALUES (:reading, NULL)", {'reading': float(co2)})
+		co2 = request.form['Co2']		
 		smoke = request.form['Smoke']
-		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': float(smoke)})
 		pressure = request.form['Pressure']
-		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': float(pressure)})
+		c.execute("INSERT INTO humidity VALUES (:reading, NULL)", {'reading': humi})
+		c.execute("INSERT INTO carbonMonoxide VALUES (:reading, NULL)", {'reading': co})
+		c.execute("INSERT INTO carbonDioxide VALUES (:reading, NULL)", {'reading': co2})
+		c.execute("INSERT INTO temperature VALUES (:reading, NULL)", {'reading': temp})
+		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': pressure})
+		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': smoke})
 		if POS > 10:
 			c.execute("DELETE FROM temperature")
 			c.execute("DELETE FROM humidity")
@@ -157,9 +157,16 @@ def data():
 
 		chart_data.append(testing)
 
-	conn.close()
-
 	return jsonify(chart_temp=chart_data)
+
+@app.route('/details2', methods = ['POST', 'GET'])
+def oldapp():
+	if request.method == 'POST':
+		temp = request.form['Temperature']
+		humi = request.form['Humidity']
+		return render_template('detailsOld.html', title='Details', value=temp)
+	elif request.method == 'GET':
+		return render_template('detailsOld.html', title='Details')
 
 #-----------------------
 

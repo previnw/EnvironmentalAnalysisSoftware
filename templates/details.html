@@ -1,280 +1,48 @@
 {% extends "layout.html" %}
 {% block content %}
-    <div class="container" style="margin-top: 2.5%">
-      <h4><b>Application</b></h4>
-        <!--first comment block
-        <p> Humidity: 29</p>    
-        <div> CO2: 153
-            <button style="float:right;" onclick="acceptCO2(21)"> Check CO2 Levels</button>
-            <p id="demoCO2"></p>
-        </div>
-        <div> CO: 45
-            <button style="float:right;" onclick="acceptCO(201)"> Check CO Levels</button>
-            <p id="demoCO"></p>
-        </div>
-        <p> Temperature: {{value}}</p> 
-        end of first comment block-->
-<!--second comment block
-<script>
-function acceptCO(datapoint) {
-    if(datapoint > 25){
-        document.getElementById("demoCO").innerHTML =
-        "CO Level Unnaceptable";
-    }   
-    else
-    {
-        document.getElementById("demoCO").innerHTML =
-        "CO Level is Fine";
-    }
-} 
-function acceptCO2(datapoint) {
-    if(datapoint > 1000){
-        document.getElementById("demoCO2").innerHTML =
-        "CO2 Level Unnaceptable";
-    }   
-    else
-    {
-        document.getElementById("demoCO2").innerHTML =
-        "CO2 Level is Fine";
-    }
-} 
-</script>
-end of second comment block-->
-        <!--<p> Want to override the POST data for now, can implement an average if we have time to get a DB going </p>-->
+<div class="container" style="margin-top: 2.5%">
+  <h4 style="padding-bottom: 2.5%" ><b>Application</b></h4>
 
-<!--p>   Temperature </p>-->
-<div class="row">
+  <div class="row">
+  <div class="four columns">
 
+    <!--p>   Temperature </p>-->
+    <title>jQuery Example</title>
 
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
 
-<div class="one-third column">
-<title>jQuery Example</title>
+    function(data) {
+    $('#result').text(data.result);
+    console.log(data)
+    });
 
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result').text(data.result);
-        console.log(data)
-      });
-      
     };  
     function stopTextColor() {
-      clearInterval(intervalID);
+    clearInterval(intervalID);
     }
-</script>
-<body onload="update_values();">
-<h5>Temperature</h5>
+    </script>
+    <body onload="update_values();">
+    <h5>Temperature</h5>
     <span style="margin-left: 15px; color: indianred;" id="result"><b>?</b></span>
-<script>
-document.getElementById("result").innerHTML;
-</script>
+    <script>
+    document.getElementById("result").innerHTML;
+    </script>
     <button id="update" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
 
     <br>
     <br>
     </body>
 
-
-
-<!--p>   Humidity  </p>-->
-<title>jQuery Example</title>
-
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result1').text(data.result1);
-        console.log(data)
-      });
+  </div>
+  <div class="eight columns">
       
-    };
-    function stopTextColor() {
-      clearInterval(intervalID);
-    }
-</script>
-<body onload="update_values();">
-<h5>Humidity</h5>
-    <span style="margin-left: 15px; color: indianred;" id="result1"><b>?</b></span>
-<script>
-document.getElementById("result1").innerHTML;
-</script>
-
-    <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-
-    <br>
-    <br>
-    </body>
-
-
-
-<!--p>  Pressure </p>-->
-<title>jQuery Example</title>
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result2').text(data.result2);
-        console.log(data)
-      });      
-    };
-    function stopTextColor() {
-      clearInterval(intervalID);
-    }   
-</script>
-<body onload="update_values();">
-<h5>Pressure</h5>
-    <span style="margin-left: 15px; color: indianred;" id="result2"><b>?</b></span>
-<script>
-document.getElementById("result2").innerHTML;
-</script>
-
-    <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-
-    <br>
-    <br>
-    </body>
-
-
-</div>
-
-
-<div class="one-third column">
-<!--p>  Carbon Dioxide </p>-->
-<title>jQuery Example</title>
-
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result3').text(data.result3);
-        console.log(data)
-      });
-      
-    };
-    function stopTextColor() {
-      clearInterval(intervalID);
-    }
-</script>
-<body onload="update_values();">
-<h5>Carbon Dioxide</h5>
-    <span style="margin-left: 15px; color: indianred;" id="result3"><b>?</b></span>
-<script>
-document.getElementById("result3").innerHTML;
-</script>
-    <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-
-    <br>
-    <br>
-    </body>
-
-
-
-
-
-
-
-<!--p>  Carbon Monoxide </p>-->
-<title>jQuery Example</title>
-
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result4').text(data.result4);
-        console.log(data)
-      });
-      
-    };    
-    function stopTextColor() {
-      clearInterval(intervalID);
-    }
-</script>
-<body onload="update_values();">
-<h5>Carbon Monoxide</h5>
-    <span style="margin-left: 15px; color: indianred;" id="result4"><b>?</b></span>
-<script>
-document.getElementById("result4").innerHTML;
-</script>
-    <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-
-    <br>
-    <br>
-    </body>
-
-
-
-
-
-
-
-<!--p>  Smoke </p>-->
-<title>jQuery Example</title>
-
-<script type="text/javascript">
-  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
-</script>
-<script type="text/javascript">
-var intervalID = setInterval(update_values,1000);
-  function update_values() {
-        $.getJSON($SCRIPT_ROOT + '/_stuff',
-               
-      function(data) {
-        $('#result5').text(data.result5);
-        console.log(data)
-      });     
-    };
-    function stopTextColor() {
-      clearInterval(intervalID);
-    }  
-</script>
-<body onload="update_values();">
-<h5>Smoke</h5>
-    <span style="margin-left: 15px; color: indianred;" id="result5"><b>?</b></span>
-<script>
-document.getElementById("result5").innerHTML;
-</script>
-    <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
-
-    <br>
-    <br>
-    </body>
-
-
-</div>
-
-<div style="text-align: center" class="one-third column">
-
-  <br>
-  <br>
-  <h5 style="display: inline-block">Graph</h5>
-
-    <div class="ct-chart ct-perfect-fourth"></div>
+    <div class="ct-chart ct-perfect-fourth u-full-width" id="chart"></div>
     <script>
   
       
@@ -284,7 +52,7 @@ document.getElementById("result5").innerHTML;
 
         var data = {
       // A labels array that can contain any sort of values
-      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
         chart_temp.chart_temp
@@ -295,11 +63,11 @@ document.getElementById("result5").innerHTML;
       // is the actual data object.
 
       var options = {
-      width: 300,
-      height: 200
+      width: 550,
+      height: 300
       };
 
-      myChart = new Chartist.Line('.ct-chart', data, options);
+      myChart = new Chartist.Line('#chart', data, options);
 
     });
 
@@ -311,7 +79,7 @@ document.getElementById("result5").innerHTML;
       
         var data = {
         // A labels array that can contain any sort of values
-        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
           chart_temp.chart_temp
@@ -324,21 +92,489 @@ document.getElementById("result5").innerHTML;
     }
 
     $("#update").on('click', updateChart);
+
+    </script>
+
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="four columns">
+    
+    <!--p>   Humidity  </p>-->
+    <title>jQuery Example</title>
+
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
+
+    function(data) {
+    $('#result1').text(data.result1);
+    console.log(data)
+    });
+
+    };
+    function stopTextColor() {
+    clearInterval(intervalID);
+    }
+    </script>
+    <body onload="update_values();">
+    <h5>Humidity</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result1"><b>?</b></span>
+    <script>
+    document.getElementById("result1").innerHTML;
+    </script>
+
+    <button id="update1" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+
+    <br>
+    <br>
+    </body>
+
+  </div>
+  <div class="eight columns">
+
+    <div class="ct-chart ct-perfect-fourth" id="chart1"></div>
+    <script>
+  
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(chart_temp){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: [],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        chart_temp.chart_temp
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 550,
+      height: 300
+      };
+
+      myChart = new Chartist.Line('#chart1', data, options);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(chart_temp){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: [],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          chart_temp.chart_temp
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
     $("#update1").on('click', updateChart);
+
+    </script>     
+
+  </div>
+  </div>
+
+  <div class="row">
+  <div class="four columns">
+    
+    <!--p>  Pressure </p>-->
+    <title>jQuery Example</title>
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
+
+    function(data) {
+    $('#result2').text(data.result2);
+    console.log(data)
+    });      
+    };
+    function stopTextColor() {
+    clearInterval(intervalID);
+    }   
+    </script>
+    <body onload="update_values();">
+    <h5>Pressure</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result2"><b>?</b></span>
+    <script>
+    document.getElementById("result2").innerHTML;
+    </script>
+
+    <button id="update2" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+
+    <br>
+    <br>
+    </body>
+
+  </div>
+    <div class="eight columns">
+      
+    <div class="ct-chart ct-perfect-fourth" id="chart2"></div>
+    <script>
+  
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(chart_temp){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: [],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        chart_temp.chart_temp
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 550,
+      height: 300
+      };
+
+      myChart = new Chartist.Line('#chart2', data, options);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(chart_temp){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: [],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          chart_temp.chart_temp
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
     $("#update2").on('click', updateChart);
+
+    </script>
+
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="four columns">
+    
+    <!--p>  Carbon Dioxide </p>-->
+    <title>jQuery Example</title>
+
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
+
+    function(data) {
+    $('#result3').text(data.result3);
+    console.log(data)
+    });
+
+    };
+    function stopTextColor() {
+    clearInterval(intervalID);
+    }
+    </script>
+    <body onload="update_values();">
+    <h5>Carbon Dioxide</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result3"><b>?</b></span>
+    <script>
+    document.getElementById("result3").innerHTML;
+    </script>
+    <button id="update3" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+
+    <br>
+    <br>
+    </body>
+    
+  </div>
+    <div class="eight columns">
+      
+    <div class="ct-chart ct-perfect-fourth" id="chart3"></div>
+    <script>
+  
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(chart_temp){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: [],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        chart_temp.chart_temp
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 550,
+      height: 300
+      };
+
+      myChart = new Chartist.Line('#chart3', data, options);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(chart_temp){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: [],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          chart_temp.chart_temp
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
     $("#update3").on('click', updateChart);
+
+    </script>
+
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="four columns">
+    
+    <!--p>  Carbon Monoxide </p>-->
+    <title>jQuery Example</title>
+
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
+
+    function(data) {
+    $('#result4').text(data.result4);
+    console.log(data)
+    });
+
+    };    
+    function stopTextColor() {
+    clearInterval(intervalID);
+    }
+    </script>
+    <body onload="update_values();">
+    <h5>Carbon Monoxide</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result4"><b>?</b></span>
+    <script>
+    document.getElementById("result4").innerHTML;
+    </script>
+    <button id="update4" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+
+    <br>
+    <br>
+    </body>
+
+  </div>
+    <div class="eight columns">
+      
+    <div class="ct-chart ct-perfect-fourth" id="chart4"></div>
+    <script>
+  
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(chart_temp){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: [],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        chart_temp.chart_temp
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 550,
+      height: 300
+      };
+
+      myChart = new Chartist.Line('#chart4', data, options);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(chart_temp){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: [],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          chart_temp.chart_temp
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
     $("#update4").on('click', updateChart);
+
+
+    </script>
+
+    </div>
+  </div>
+
+  <div class="row">
+  <div class="four columns">
+
+    <!--p>  Smoke </p>-->
+    <title>jQuery Example</title>
+
+    <script type="text/javascript">
+    var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+    </script>
+    <script type="text/javascript">
+    var intervalID = setInterval(update_values,1000);
+    function update_values() {
+    $.getJSON($SCRIPT_ROOT + '/_stuff',
+
+    function(data) {
+    $('#result5').text(data.result5);
+    console.log(data)
+    });     
+    };
+    function stopTextColor() {
+    clearInterval(intervalID);
+    }  
+    </script>
+    <body onload="update_values();">
+    <h5>Smoke</h5>
+    <span style="margin-left: 15px; color: indianred;" id="result5"><b>?</b></span>
+    <script>
+    document.getElementById("result5").innerHTML;
+    </script>
+    <button id="update5" style="margin-left: 20px;" onclick="stopTextColor();">Graph</button>
+
+    <br>
+    <br>
+    </body>   
+
+  </div>
+    <div class="eight columns">
+      
+    <div class="ct-chart ct-perfect-fourth" id="chart5"></div>
+    <script>
+  
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(chart_temp){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: [],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        chart_temp.chart_temp
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 550,
+      height: 300
+      };
+
+      myChart = new Chartist.Line('#chart5', data, options);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(chart_temp){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: [],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          chart_temp.chart_temp
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
     $("#update5").on('click', updateChart);
 
 
     </script>
 
+    </div>
   </div>
 
 
-</div>
-
-<!--p>   Testing stuff  </p>-->
 </div>
 
 {% endblock content %}
