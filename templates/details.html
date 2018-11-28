@@ -49,8 +49,7 @@ end of second comment block-->
 
 <div class="one-third column">
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -84,8 +83,7 @@ document.getElementById("result").innerHTML;
 
 <!--p>   Humidity  </p>-->
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -119,8 +117,6 @@ document.getElementById("result1").innerHTML;
 
 <!--p>  Pressure </p>-->
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -156,8 +152,7 @@ document.getElementById("result2").innerHTML;
 <div class="one-third column">
 <!--p>  Carbon Dioxide </p>-->
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -195,8 +190,7 @@ document.getElementById("result3").innerHTML;
 
 <!--p>  Carbon Monoxide </p>-->
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -234,8 +228,7 @@ document.getElementById("result4").innerHTML;
 
 <!--p>  Smoke </p>-->
 <title>jQuery Example</title>
-<script type="text/javascript"
-  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
 <script type="text/javascript">
   var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
 </script>
@@ -269,9 +262,60 @@ document.getElementById("result5").innerHTML;
 
 <div class="one-third column">
 
-  Graph will go here
-  <br>
-  xxxxxx
+    <button id="update">Update the Chart!</button>
+
+    <div class="ct-chart ct-perfect-fourth"></div>
+    <script>
+    
+      
+      var myChart;
+      var getData = $.get('/data');
+      getData.done(function(results){
+
+        var data = {
+      // A labels array that can contain any sort of values
+      labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+      // Our series array that contains series objects or in this case series data arrays
+      series: [
+        results.results
+      ]
+      };
+      // Create a new line chart object where as first parameter we pass in a selector
+      // that is resolving to our chart container element. The Second parameter
+      // is the actual data object.
+
+      var options = {
+      width: 150,
+      height: 100
+      };
+
+      myChart = new Chartist.Line('.ct-chart', data);
+
+    });
+
+    function updateChart(){
+
+      var updatedData = $.get('/data');
+      updatedData.done(function(results){
+
+      
+        var data = {
+        // A labels array that can contain any sort of values
+        labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'],
+        // Our series array that contains series objects or in this case series data arrays
+        series: [
+          results.results
+        ]
+        };
+      myChart.update(data);   
+
+      });
+
+    }
+
+    $("#update").on('click', updateChart);
+
+    </script>
 
   </div>
 
