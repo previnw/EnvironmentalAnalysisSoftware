@@ -86,9 +86,35 @@ setup/build instructions
 #### hardware information
 ```
 
-conrad your stuff can go here
+code structure
+--------------
+C++
+Arduino Libraries
 
 
+hardware
+--------
+arduino mega 2560
+esp8266 nodemcu wifi module
+6 different sensors
+
+
+setup/build instructions
+------------------------
+1. hardware
+
+  hook up the sensor as is shown in the diagram in the report and use the that is stored within the github.
+
+2. nodemcu wifi module
+
+  the wifi module is setup to connect to the webapp already and just needs to be connected as is shown in the diagram
+
+3. arduino
+
+  if you want to push new code to the arduino, the sensor libraries must be added to your ide through the manage libraries tool.  simply search the sensor names and press the install button
+  <Adafruit_BMP085.h>
+  <SoftwareSerial.h>
+  <Adafruit_Sensor.h>
 ```
 
 
