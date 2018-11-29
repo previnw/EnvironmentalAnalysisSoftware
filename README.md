@@ -1,8 +1,10 @@
-### software guide
+### user setup & guide
 [github repository](https://github.com/previnw/EnvironmentalAnalysisSoftware) 
 `(https://github.com/previnw/EnvironmentalAnalysisSoftware)`<br />
 [website](https://go-environment.herokuapp.com/)
 `(https://go-environment.herokuapp.com/) `
+
+#### software information
 ```
 code structure
 --------------
@@ -76,4 +78,12 @@ setup/build instructions
 
   pc/mac command: deactivate
 ```
+#### hardware information
+```
+
+conrad your stuff can go here
+
+
+```
+
 
