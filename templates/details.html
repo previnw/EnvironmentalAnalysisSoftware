@@ -155,15 +155,15 @@
   
       
       var myChart1;
-      var getData1 = $.get('/data');
-      getData1.done(function(chart_temp){
+      var getData1 = $.get('/data2');
+      getData1.done(function(chart_humi){
 
         var data1 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        chart_humi.chart_humi
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -176,8 +176,8 @@
 
     function updateChart1(){
 
-      var updatedData1 = $.get('/data');
-      updatedData1.done(function(chart_temp){
+      var updatedData1 = $.get('/data2');
+      updatedData1.done(function(chart_humi){
 
       
         var data1 = {
@@ -185,7 +185,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          chart_humi.chart_humi
         ]
         };
       myChart1.update(data1);   
@@ -259,15 +259,15 @@
   
       
       var myChart2;
-      var getData2 = $.get('/data');
-      getData2.done(function(chart_temp){
+      var getData2 = $.get('/data1');
+      getData2.done(function(chart_press){
 
         var data2 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        chart_press.chart_press
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -280,8 +280,8 @@
 
     function updateChart2(){
 
-      var updatedData2 = $.get('/data');
-      updatedData2.done(function(chart_temp){
+      var updatedData2 = $.get('/data1');
+      updatedData2.done(function(chart_press){
 
       
         var data2 = {
@@ -289,7 +289,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          chart_press.chart_press
         ]
         };
       myChart2.update(data2);   
@@ -362,15 +362,15 @@
   
       
       var myChart3;
-      var getData3 = $.get('/data');
-      getData3.done(function(chart_temp){
+      var getData3 = $.get('/data3');
+      getData3.done(function(chart_co2){
 
         var data3 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        chart_co2.chart_co2
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -384,8 +384,8 @@
 
     function updateChart3(){
 
-      var updatedData3 = $.get('/data');
-      updatedData3.done(function(chart_temp){
+      var updatedData3 = $.get('/data3');
+      updatedData3.done(function(chart_co2){
 
       
         var data3 = {
@@ -393,7 +393,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          chart_co2.chart_co2
         ]
         };
       myChart3.update(data3);   
@@ -466,15 +466,15 @@
   
       
       var myChart4;
-      var getData4 = $.get('/data');
-      getData4.done(function(chart_temp){
+      var getData4 = $.get('/data4');
+      getData4.done(function(chart_co){
 
         var data4 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        chart_co.chart_co
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -487,8 +487,8 @@
 
     function updateChart4(){
 
-      var updatedData4 = $.get('/data');
-      updatedData4.done(function(chart_temp){
+      var updatedData4 = $.get('/data4');
+      updatedData4.done(function(chart_co){
 
       
         var data4 = {
@@ -496,7 +496,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          chart_co.chart_co
         ]
         };
       myChart4.update(data4);   
@@ -571,15 +571,15 @@
   
       
       var myChart5;
-      var getData5 = $.get('/data');
-      getData5.done(function(chart_temp){
+      var getData5 = $.get('/data5');
+      getData5.done(function(chart_smoke){
 
         var data5 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        chart_smoke.chart_smoke
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -592,8 +592,8 @@
 
     function updateChart5(){
 
-      var updatedData5 = $.get('/data');
-      updatedData5.done(function(chart_temp){
+      var updatedData5 = $.get('/data5');
+      updatedData5.done(function(chart_smoke){
 
       
         var data5 = {
@@ -601,7 +601,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          chart_smoke.chart_smoke
         ]
         };
       myChart5.update(data5);
