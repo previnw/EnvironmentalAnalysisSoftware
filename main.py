@@ -1,6 +1,9 @@
 # terminal command to test and send data to app
 # curl --request POST --url https://go-environment.herokuapp.com/_stuff --data "Temperature=1&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
 # curl --request POST --url 172.20.10.8:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=5&Pressure=6"
+# curl --request POST --url localhost:5000/_stuff --data "Temperature=5.6&Humidity=6&Co=8&Co2=1&Smoke=7&Pressure=100"
+# curl --request POST --url localhost:5000/_stuff --data "Temperature=4.5555&Humidity=2&Co=3&Co2=4&Smoke=87&Pressure=6"
+
 
 from flask import Flask, render_template, url_for, jsonify, request, redirect
 from flask_wtf import FlaskForm
@@ -141,8 +144,6 @@ def data():
 
 	c = conn.cursor()
 
-	#if blah then select data from certain table
-
 	c.execute("SELECT data_val FROM temperature")
 
 	test = c.fetchall() 
@@ -158,6 +159,131 @@ def data():
 		chart_data.append(testing)
 
 	return jsonify(chart_temp=chart_data)
+
+@app.route('/data1')
+def data1():
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	c.execute("SELECT data_val FROM pressure_table")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	return jsonify(chart_press=chart_data)
+
+@app.route('/data2')
+def data2():
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	c.execute("SELECT data_val FROM humidity")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	return jsonify(chart_humi=chart_data)
+
+@app.route('/data3')
+def data3():
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	c.execute("SELECT data_val FROM carbonDioxide")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	return jsonify(chart_co2=chart_data)
+
+@app.route('/data4')
+def data4():
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	c.execute("SELECT data_val FROM carbonMonoxide")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	return jsonify(chart_co=chart_data)
+
+@app.route('/data5')
+def data5():
+
+	# return jsonify({'results' : sample(range(1,11), 10)})
+
+	conn = sqlite3.connect('data.db') 
+
+	c = conn.cursor()
+
+	c.execute("SELECT data_val FROM smoke_table")
+
+	test = c.fetchall() 
+
+	chart_data = []
+
+	for x in range(len(test)):
+
+		testing1 = str(test[x])[1:-4]
+
+		testing = float(testing1)
+
+		chart_data.append(testing)
+
+	return jsonify(chart_smoke=chart_data)
 
 @app.route('/details2', methods = ['POST', 'GET'])
 def oldapp():
