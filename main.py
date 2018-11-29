@@ -135,29 +135,29 @@ def chart():
 @app.route('/data')
 def data():
 
-	return jsonify({'results' : sample(range(1,11), 10)})
+	# return jsonify({'results' : sample(range(1,11), 10)})
 
-	# conn = sqlite3.connect('data.db') 
+	conn = sqlite3.connect('data.db') 
 
-	# c = conn.cursor()
+	c = conn.cursor()
 
-	# #if blah then select data from certain table
+	#if blah then select data from certain table
 
-	# c.execute("SELECT data_val FROM temperature")
+	c.execute("SELECT data_val FROM temperature")
 
-	# test = c.fetchall() 
+	test = c.fetchall() 
 
-	# chart_data = []
+	chart_data = []
 
-	# for x in range(len(test)):
+	for x in range(len(test)):
 
-	# 	testing1 = str(test[x])[1:-4]
+		testing1 = str(test[x])[1:-4]
 
-	# 	testing = float(testing1)
+		testing = float(testing1)
 
-	# 	chart_data.append(testing)
+		chart_data.append(testing)
 
-	# return jsonify(chart_temp=chart_data)
+	return jsonify(chart_temp=chart_data)
 
 @app.route('/details2', methods = ['POST', 'GET'])
 def oldapp():
