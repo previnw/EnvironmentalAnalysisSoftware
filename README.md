@@ -49,7 +49,12 @@ setup/build instructions
 
   follow this installation guide: http://flask.pocoo.org/docs/1.0/installation/#install-flask
 
-5. run app w/ local web server (2 ways)
+5. install additional libraries
+
+  pc/mac commands: pip install Flask-WTF
+                   pip install WTForms
+
+6. run app w/ local web server (2 ways)
   
   1st way:
      
@@ -65,16 +70,16 @@ setup/build instructions
                   export FLASK_DEBUG=1
                   flask run
 
-6. to see website
+7. to see website
 	
   open your internet browser
   web address: http://localhost:5000/
 
-7. to stop web server
+8. to stop web server
 
   pc/mac command: ctrl-c
 
-8. to deactivate virtual environment
+9. to deactivate virtual environment
 
   pc/mac command: deactivate
 ```
