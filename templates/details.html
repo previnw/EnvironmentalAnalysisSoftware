@@ -48,14 +48,14 @@
       
       var myChart;
       var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      getData.done(function(results){
 
         var data = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -70,7 +70,7 @@
     function updateChart(){
 
       var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      updatedData.done(function(results){
 
       
         var data = {
@@ -78,7 +78,7 @@
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
       myChart.update(data);   
@@ -95,6 +95,20 @@
   </div>
   <br>
   <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="row">
   <div class="four columns">
@@ -140,41 +154,41 @@
     <script>
   
       
-      var myChart;
-      var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      var myChart1;
+      var getData1 = $.get('/data');
+      getData1.done(function(results){
 
-        var data = {
+        var data1 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
       // that is resolving to our chart container element. The Second parameter
       // is the actual data object.
 
-      myChart = new Chartist.Line('#chart1', data);
+      myChart1 = new Chartist.Line('#chart1', data1);
 
     });
 
     function updateChart1(){
 
-      var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      var updatedData1 = $.get('/data');
+      updatedData1.done(function(results){
 
       
-        var data = {
+        var data1 = {
         // A labels array that can contain any sort of values
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
-      myChart.update(data);   
+      myChart1.update(data1);   
 
       });
 
@@ -188,6 +202,19 @@
   </div>
   <br>
   <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="row">
   <div class="four columns">
@@ -231,41 +258,41 @@
     <script>
   
       
-      var myChart;
-      var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      var myChart2;
+      var getData2 = $.get('/data');
+      getData2.done(function(results){
 
-        var data = {
+        var data2 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
       // that is resolving to our chart container element. The Second parameter
       // is the actual data object.
 
-      myChart = new Chartist.Line('#chart2', data);
+      myChart2 = new Chartist.Line('#chart2', data2);
 
     });
 
     function updateChart2(){
 
-      var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      var updatedData2 = $.get('/data');
+      updatedData2.done(function(results){
 
       
-        var data = {
+        var data2 = {
         // A labels array that can contain any sort of values
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
-      myChart.update(data);   
+      myChart2.update(data2);   
 
       });
 
@@ -279,6 +306,17 @@
   </div>
   <br>
   <br>
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="row">
   <div class="four columns">
@@ -323,16 +361,16 @@
     <script>
   
       
-      var myChart;
-      var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      var myChart3;
+      var getData3 = $.get('/data');
+      getData3.done(function(results){
 
-        var data = {
+        var data3 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
@@ -340,25 +378,25 @@
       // is the actual data object.
 
 
-      myChart = new Chartist.Line('#chart3', data);
+      myChart3 = new Chartist.Line('#chart3', data3);
 
     });
 
     function updateChart3(){
 
-      var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      var updatedData3 = $.get('/data');
+      updatedData3.done(function(results){
 
       
-        var data = {
+        var data3 = {
         // A labels array that can contain any sort of values
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
-      myChart.update(data);   
+      myChart3.update(data3);   
 
       });
 
@@ -372,6 +410,17 @@
   </div>
   <br>
   <br>
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="row">
   <div class="four columns">
@@ -416,41 +465,41 @@
     <script>
   
       
-      var myChart;
-      var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      var myChart4;
+      var getData4 = $.get('/data');
+      getData4.done(function(results){
 
-        var data = {
+        var data4 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
       // that is resolving to our chart container element. The Second parameter
       // is the actual data object.
 
-      myChart = new Chartist.Line('#chart4', data);
+      myChart4 = new Chartist.Line('#chart4', data4);
 
     });
 
     function updateChart4(){
 
-      var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      var updatedData4 = $.get('/data');
+      updatedData4.done(function(results){
 
       
-        var data = {
+        var data4 = {
         // A labels array that can contain any sort of values
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
-      myChart.update(data);   
+      myChart4.update(data4);   
 
       });
 
@@ -465,6 +514,19 @@
   </div>
   <br>
   <br>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   <div class="row">
   <div class="four columns">
@@ -508,41 +570,41 @@
     <script>
   
       
-      var myChart;
-      var getData = $.get('/data');
-      getData.done(function(chart_temp){
+      var myChart5;
+      var getData5 = $.get('/data');
+      getData5.done(function(results){
 
-        var data = {
+        var data5 = {
       // A labels array that can contain any sort of values
       labels: [],
       // Our series array that contains series objects or in this case series data arrays
       series: [
-        chart_temp.chart_temp
+        results.results
       ]
       };
       // Create a new line chart object where as first parameter we pass in a selector
       // that is resolving to our chart container element. The Second parameter
       // is the actual data object.
 
-      myChart = new Chartist.Line('#chart5', data);
+      myChart5 = new Chartist.Line('#chart5', data5);
 
     });
 
     function updateChart5(){
 
-      var updatedData = $.get('/data');
-      updatedData.done(function(chart_temp){
+      var updatedData5 = $.get('/data');
+      updatedData5.done(function(results){
 
       
-        var data = {
+        var data5 = {
         // A labels array that can contain any sort of values
         labels: [],
         // Our series array that contains series objects or in this case series data arrays
         series: [
-          chart_temp.chart_temp
+          results.results
         ]
         };
-      myChart.update(data);
+      myChart5.update(data5);
 
       });
 
