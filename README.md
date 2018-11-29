@@ -13,6 +13,7 @@ front-end:
   skeleton boilerplate
   html & css
   javascript
+  jQuery
 
 back-end:
 
