@@ -87,7 +87,7 @@ def jsontest():
 @app.route('/_stuff', methods = ['POST', 'GET'])
 def stuff():
     #return jsonify(result=time.time())
-	global temp, humi, co, co2, smoke, pressure, POS
+	global temp, humi, co, co2, smoke, pressure, POS, check
 
 	if request.method == 'POST':
 		conn = sqlite3.connect('data.db', timeout = 3) 
@@ -104,15 +104,17 @@ def stuff():
 		c.execute("INSERT INTO temperature VALUES (:reading, NULL)", {'reading': temp})
 		c.execute("INSERT INTO pressure_table VALUES (:reading, NULL)", {'reading': pressure})
 		c.execute("INSERT INTO smoke_table VALUES (:reading, NULL)", {'reading': smoke})
-		if POS > 10:
+		c.execute("SELECT id FROM temperature ORDER BY id DESC LIMIT 1")
+		POS = c.fetchone()
+		POS = str(POS)[1:-2]
+		POS = float(POS)
+		if POS > 15:
 			c.execute("DELETE FROM temperature")
 			c.execute("DELETE FROM humidity")
 			c.execute("DELETE FROM smoke_table")
 			c.execute("DELETE FROM carbonDioxide")
 			c.execute("DELETE FROM carbonMonoxide")
 			c.execute("DELETE FROM pressure_table")
-			POS = 0
-		POS += 1
 		conn.commit()
 		conn.close()
 		return jsonify(result=temp)
@@ -144,7 +146,7 @@ def data():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM temperature")
+	c.execute("SELECT data_val FROM (SELECT data_val FROM temperature DESC) ASC")
 
 	test = c.fetchall() 
 
@@ -169,7 +171,7 @@ def data1():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM pressure_table")
+	c.execute("SELECT data_val FROM (SELECT data_val FROM pressure_table DESC) ASC")
 
 	test = c.fetchall() 
 
@@ -194,7 +196,7 @@ def data2():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM humidity")
+	c.execute("SELECT data_val FROM (SELECT data_val FROM humidity DESC) ASC")
 
 	test = c.fetchall() 
 
@@ -219,7 +221,7 @@ def data3():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM carbonDioxide")
+	c.execute("SELECT data_val FROM (SELECT data_val FROM carbonDioxide DESC) ASC")
 
 	test = c.fetchall() 
 
@@ -244,8 +246,7 @@ def data4():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM carbonMonoxide")
-
+	c.execute("SELECT data_val FROM (SELECT data_val FROM carbonMonoxide DESC) ASC")
 	test = c.fetchall() 
 
 	chart_data = []
@@ -269,7 +270,7 @@ def data5():
 
 	c = conn.cursor()
 
-	c.execute("SELECT data_val FROM smoke_table")
+	c.execute("SELECT data_val FROM (SELECT data_val FROM smoke_table DESC) ASC")
 
 	test = c.fetchall() 
 
